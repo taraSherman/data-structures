@@ -35,10 +35,10 @@ class Queue:
         # remove element from tail
             return self.storage.pop()
 
-class Queue_Linked_List:
+class Linked_Queue:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = LinkedList()
 
     def __len__(self):
         return self.size
