@@ -58,7 +58,7 @@ class LinkedList:
 
     def add_to_head(self, value):
         # create a new Node
-        new_node = Queue(value)
+        new_node = Linked_Queue(value)
         if self.head is None:
             # update head and tail attributes
             self.head = new_node
@@ -89,7 +89,7 @@ class LinkedList:
 
     def add_to_tail(self, value):
         # create new node
-        new_node = Queue(value)
+        new_node = Linked_Queue(value)
         # if linked list is empty
         if self.head is None:
             #update head and tail attributes
