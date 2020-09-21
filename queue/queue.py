@@ -45,9 +45,13 @@ class Linked_Queue:
 
     def enqueue(self, value):
         self.storage.add_to_tail(value)
+        self.size += 1
 
     def dequeue(self):
-        self.storage.remove_head()
+        if self.size > 0:
+            self.size -= 1
+            return self.storage.remove_head()
+        return None
 
 
 class LinkedList:
