@@ -152,6 +152,7 @@ class DoublyLinkedList:
         # compare value in node to max found
             if current.value > max:
                 max = current.value
+            # update current node to next
             current = current.next
         # return max found
         return max
