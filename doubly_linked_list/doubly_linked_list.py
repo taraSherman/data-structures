@@ -9,8 +9,12 @@ class ListNode:
         self.next = next
 
     def delete(self):
+        # if this node has a reference to the previous node,
+        # assign the next ref of that previous node to this node's next ref
         if self.prev:
             self.prev.next = self.next
+        # if this node has a next reference,
+        # assign the prev reference of that node to this node's prev ref
         if self.next:
             self.next.prev = self.prev
 
