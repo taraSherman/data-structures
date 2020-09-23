@@ -17,20 +17,81 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        # compare the input value with the value of the Node
+        # if value < node's value
+        if value < self.value:
+            # we need to go left
+            # if there is no left child,
+            if self.left is None:
+            # then we can create a BSTNode with input value
+                self.left = BSTNode(value)
+            # otherwise, if there is a left child,
+            else:
+                # call the left child's 'insert' method
+                self.left.insert(value)
+        # else, value >= Node's value
+        else:
+            # we need to go right
+            # if there is no right child,
+            if self.right is None:
+                # then we can create a BSTNode with input value
+                self.right = BSTNode(value)
+            # otherwise, if there is a right child,
+            else:
+                # call the left child's 'insert' method
+                self.right.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        # compare the target value with the value of the current node
+        if self.value == target:
+        # if this node's value == target's value,
+            return True
+            # return True
+        # if target's value is less than this node's value, go left
+        if target < self.value:
+        # if there is no left child
+            if not self.left:
+            # then the target value cannot be in the left side of the tree
+                return False
+            # else,
+            else:
+                # call the method again until there is no left child
+                return self.left.contains(target)
+        # otherwise
+        else:
+            # the target value value is greater than or equal to the node's value, so you go right
+            if target >= self.value:
+                # if there is no right child
+                if not self.right:
+                    # then the target value cannot be in the right side of the tree
+                    return False
+                # else,
+                else:
+                    # call the method again until there is no right child
+                    return self.right.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        # the max value in the tree will be the last node on the right, so go down the right side of tree, checking the value of each node, until there is no longer a right child
+        if not self.right:
+            return self.value
+        # once you reach that last right child, call the 'get_max()' method on it
+        return self.right.get_max()
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        fn(self.value)
+        # 'fn' is an anonymous function here. Call it on 'self.value'.
+        if self.left:
+        # if there is a left child,
+            self.left.for_each(fn)
+        # call the function on it
+        if self.right:
+        # if there is a right child, call the function on it
+            self.right.for_each(fn)
+
 
     # Part 2 -----------------------
 

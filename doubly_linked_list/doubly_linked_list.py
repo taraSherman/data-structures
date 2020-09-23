@@ -115,6 +115,7 @@ class DoublyLinkedList:
     order of the other elements of the List.
     """
     def delete(self, node):
+        # check if list is empty
         if not self.head and not self.tail:
             return
         #  single node
@@ -144,6 +145,9 @@ class DoublyLinkedList:
     in the List.
     """
     def get_max(self):
+        # check if list is empty
+        if not self.head and not self.tail:
+            return
         # create max variable
         current = self.head
         max = self.head.value
