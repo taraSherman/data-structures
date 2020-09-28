@@ -143,35 +143,18 @@ class BSTNode:
     # Hint:  Use a recursive, depth first traversal
 
     def in_order_print(self):
-        if self is None:
-            return
-        if self.left is not None:
-            self.left.in_order_print()
-        print(self.value)
-        if self.right is not None:
-            self.right.in_order_print()
+            if self is not None:
+                if self.left is not None:
+                    self.left.in_order_print()
+                print(self.value)
+                if self.right is not None:
+                    self.right.in_order_print()
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self):
-        from collections import deque
-        queue = deque()
-        queue.append(self)
-
-        # continue to traverse so long as there are nodes in the queue
-        while len(queue) > 0:
-            current = queue.popleft()
         
-            # print the current value
-            print(current.value)
-
-            # add the current node's right child first
-            if current.left:
-                queue.append(current.left)
-
-            # add the current node's left child
-            if current.right:
-                queue.append(current.right)
+        pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
